@@ -20,8 +20,14 @@ a{
   display: flex;
   flex-wrap: wrap;
   justify-content:space-around;
+}
+.home{
 
-
+}
+.home-card{
+  max-width: 500px;
+  height: wrap;
+  margin:26px auto;
 }
 .items{
   width:30%;
