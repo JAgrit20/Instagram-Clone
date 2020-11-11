@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
     <NavBar></NavBar>
-    <Route path="/">
+    <Route exact path="/">
     <Home/>
     </Route>
     <Route path="/profile">
