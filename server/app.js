@@ -4,10 +4,12 @@ const mongoose = require('mongoose');
 const PORT = 5999;
 const {MONGOURL} = require('./keys')
 require('./models/User')
+require('./models/post')
 
 app.use(express.json());
 
 app.use(require('./routes/auth'))
+app.use(require('./routes/post'))
 
 
 // JVuMIO4n7ifnrRu0
