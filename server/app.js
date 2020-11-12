@@ -3,10 +3,11 @@ const app = express();
 const mongoose = require('mongoose');
 const PORT = 5999;
 const {MONGOURL} = require('./keys')
+const bodyParser = require('body-parser')
 require('./models/User')
 require('./models/post')
 
-app.use(express.json());
+app.use(bodyParser.json())
 
 app.use(require('./routes/auth'))
 app.use(require('./routes/post'))

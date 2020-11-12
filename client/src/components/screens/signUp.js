@@ -5,21 +5,20 @@ import M from 'materialize-css';
 const Signup =()=>{
   const history = useHistory()
   const [name,setName] = useState("")
-  const [password,setPasword] = useState("")
+  const [password,setPassword] = useState("")
   const [email,setEmail] = useState("")
 // const history = useHistory();
 const postData = () =>{
-  fetch("",{
+  fetch("/signup",{
     method : "post",
     header:{"Content-Type": "application/json"},
     body: JSON.stringify({
       name,
-      password,
       email,
-
+      password,
     })
-
-  }).then(res=>res.json())
+  })
+  .then(res=>res.json())
   .then(data =>{
    if(data.error){
      M.toast({html: data.error,classes:"#f44336 red"})
@@ -31,7 +30,6 @@ const postData = () =>{
   }).catch(err =>{
     console.log(err)
   })
- 
 }
 
 return <>
@@ -49,12 +47,11 @@ return <>
             type="password"
             placeholder="password"
             value={password}
-            onChange={(e)=>setPasword(e.target.value)}
-            />  {/* <input type="password" placeholder="Confirm password" value={password} onChange={(e)=>setpassword(e.target.value)} />  */}
+            onChange={(e)=>setPassword(e.target.value)}
+            />
    <button className="btn waves-effect waves-light #1565c0 blue darken-3" onClick={()=>postData()}>Signup ➡
-  
   </button>
-  <h5> <Link to="/SignIn" >Already have an account? </Link> </h5> 
+  <h5> <Link to="/SignIn" >Already have an account? </Link> </h5>
     </div>
   </div>
 </>

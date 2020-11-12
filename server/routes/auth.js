@@ -18,7 +18,8 @@ router.get('/protected',requireLogin,(req, res) => {
 router.post('/signup',(req, res) => {
     // console.log(req.body);
     const {name,email,password} = req.body
-    if(!email) { 
+    if(!email) {
+        console.log(req.body);
         res.status(422).json({error:"please email add all the fields"})
     }
     if(!password) { 
@@ -66,7 +67,8 @@ router.post('/signin',(req, res) => {
                 // res.json({message:"successfully matched"})
               
                 const token = jwt.sign({_id:savedUser.id},JWT_SECRET)
-                res.json({token:token})
+                const {_id,name,email} = savedUser
+                res.json({token,user:_id,name:name,email:email})
             }
             else{
                 return res.status(422).json({error:"invalid credentials"})
