@@ -6,24 +6,28 @@ const Login =()=>{
   const history = useHistory()
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
-  
-  
+
+
   // const history = useHistory();
   const postData = () =>{
-    fetch("/signup",{
+    
+    fetch("/signin",{
       method : "post",
-      header:{"Content-Type": "application/json"},
+      headers:{"Content-Type": "application/json"},
       body: JSON.stringify({
         email,
         password,
       })
     }).then(res=>res.json())
+    
     .then(data =>{
      if(data.error){
+      console.log(data);
        M.toast({html: data.error,classes:"#f44336 red"})
      }
      else{
-       M.toast({html:"signnedIn success", classes:"#1de9b6 teal accent-3"})
+      //  console.log(token);
+       M.toast({html:" successfully signed IN", classes:"#1de9b6 teal accent-3"})
        history.push("/")
      }
     }).catch(err =>{
