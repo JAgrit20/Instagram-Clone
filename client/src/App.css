@@ -32,3 +32,8 @@ a{
 .items{
   width:30%;
 }
+#toast{
+  /* color: rgb(136, 25, 25) !important;
+   */
+   border-radius: 20px;
+}

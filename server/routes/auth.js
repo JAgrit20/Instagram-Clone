@@ -18,9 +18,15 @@ router.get('/protected',requireLogin,(req, res) => {
 router.post('/signup',(req, res) => {
     // console.log(req.body);
     const {name,email,password} = req.body
-    if(!email || !password || !name) {
-      return  res.status(422).json({error:"please add all the fields"})
+    if(!email) { 
+        res.status(422).json({error:"please email add all the fields"})
     }
+    if(!password) { 
+          res.status(422).json({error:"please pass add all the fields"})
+      }
+    if(!name) { 
+        return  res.status(422).json({error:"please name add all the fields"})
+      }
     User.findOne({email: email}).then((savedUser) => {
         if(savedUser){
             return res.status(422).json({error:"email already exist with this email"})
