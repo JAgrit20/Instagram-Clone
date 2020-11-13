@@ -11,7 +11,9 @@ import CreatePost from './components/screens/createpost'
 
 function App() {
   return (
+  
     <BrowserRouter>
+   
     <NavBar></NavBar>
     <Route exact path="/">
     <Home/>

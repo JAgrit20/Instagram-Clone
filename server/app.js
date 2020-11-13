@@ -1,4 +1,5 @@
 const express = require('express');
+var cors = require('cors')
 const app = express();
 const mongoose = require('mongoose');
 const PORT = 5999;
@@ -6,7 +7,7 @@ const {MONGOURL} = require('./keys')
 const bodyParser = require('body-parser')
 require('./models/User')
 require('./models/post')
-
+app.use(cors())
 app.use(bodyParser.json())
 
 app.use(require('./routes/auth'))

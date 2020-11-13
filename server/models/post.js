@@ -5,7 +5,7 @@ const postSchema = new mongoose.Schema({
     title:{type: 'string', required:true},
    
 body:{type: 'string', required:true},
-photos: {type: 'string', default:"No photos"}, 
+photo: {type: 'string', required:true}, 
 postedBy:{type: 'ObjectId',ref:"User"}
 
 })
