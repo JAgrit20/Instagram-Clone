@@ -47,7 +47,7 @@ const CretePost = ()=>{
            })
            .then(res =>res.json())
        .then(data =>{
-        setUrl(data)
+        setUrl(data.url)
        })
        .catch(err =>{
            console.log(err)
@@ -87,7 +87,7 @@ const CretePost = ()=>{
             </div>
             <button className="btn waves-effect waves-light #64b5f6 blue darken-1"
             onClick={()=>postDetails()}
-            
+
             >
                 Submit post
             </button>

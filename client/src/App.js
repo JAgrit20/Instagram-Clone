@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,createContext} from 'react';
 import './App.css';
 import NavBar from './components/navbar'
 import {BrowserRouter, Route} from 'react-router-dom'
@@ -8,7 +8,7 @@ import Signup from './components/screens/signUp'
 import Profile from './components/screens/profile'
 import CreatePost from './components/screens/createpost'
 
-
+const UserContext = createContext
 function App() {
   return (
   
